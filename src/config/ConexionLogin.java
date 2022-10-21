@@ -6,19 +6,19 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author vassallo
+ * @author vassa
  */
-public class Conexion {
-    Connection con;
-    public Conexion(){
+public class ConexionLogin {
+    Connection conectar=null;
+    
+    public Connection conexion(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/registro", "root", "");
+            conectar=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/registro", "root", "");
         } catch (Exception e) {
             System.out.println("Error"+e.getMessage());
         }
+        return conectar;
     }
-    public Connection getConnection(){
-        return con;
-    }
+    
 }
